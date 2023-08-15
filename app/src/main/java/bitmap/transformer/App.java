@@ -13,40 +13,30 @@ public class App {
 
     public static void main(String[] args) throws IOException {
 
-        if(args.length>0){
+        if (args.length >= 3) {
+            String inputFilePath = args[0];
+            String outputFilePath = args[1];
+            String transformation = args[2];
 
-            String file=args[0];
-            String file2=args[1];
-            BitMap bitmap=new BitMap(file);
+            BitMap bitmap = new BitMap(inputFilePath);
 
-            if(args[2].equals("gray")){
+            if (transformation.equals("gray")) {
                 bitmap.convertImageToGray();
-                bitmap.write(file2);
-            }
-
-            if(args[2].equals("invert")){
+            } else if (transformation.equals("invert")) {
                 bitmap.invertColors();
-                bitmap.write(file2);
-
-            }
-
-            if(args[2].equals("rotate")){
+            } else if (transformation.equals("rotate")) {
                 bitmap.rotate();
-                bitmap.write(file2);
-
+            } else {
+                System.out.println("Unknown transformation: " + transformation);
+                System.out.println("Supported transformations: gray, invert, rotate");
+                return;
             }
 
-
+            bitmap.write(outputFilePath);
+        } else {
+            System.out.println("Usage: java App input_image.bmp output_image.bmp transformation");
+            System.out.println("Supported transformations: gray, invert, rotate");
         }
-
-
-
-
-
-
-
-
-
-
     }
+
 }
