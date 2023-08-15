@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class App {
 
-    private final String inputImagePath = "C:\\bitmap-transformer\\app\\src\\main\\resources\\bit.jpg"; // Replace with the actual absolute path
+    private final String inputImagePath = "C:\\bitmap-transformer\\app\\src\\main\\resources\\bit.jpg"; 
 
     @Test
     void testUnableToReadInputFile() {
