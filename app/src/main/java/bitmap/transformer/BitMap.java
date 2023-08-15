@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class BitMap {
-    BufferedImage bufferedImage;
+    public BufferedImage bufferedImage;
     public BitMap(String fileName) throws IOException{
         File file=new File(fileName);
         this.bufferedImage=ImageIO.read(file);
