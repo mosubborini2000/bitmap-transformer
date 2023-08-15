@@ -51,6 +51,22 @@ public class BitMap {
         }
     }
 
+    public void rotate() {
+        int width = this.bufferedImage.getWidth();
+        int height = this.bufferedImage.getHeight();
+        BufferedImage rotatedImage = new BufferedImage(height, width, this.bufferedImage.getType());
+
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                Color color = new Color(this.bufferedImage.getRGB(i, j));
+                rotatedImage.setRGB(height - j - 1, i, color.getRGB());
+            }
+        }
+
+        this.bufferedImage = rotatedImage;
+    }
+
+
 
 
 

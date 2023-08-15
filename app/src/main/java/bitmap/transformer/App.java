@@ -13,6 +13,31 @@ public class App {
 
     public static void main(String[] args) throws IOException {
 
+        if(args.length>0){
+
+            String file=args[0];
+            String file2=args[1];
+            BitMap bitmap=new BitMap(file);
+
+            if(args[2].equals("gray")){
+                bitmap.convertImageToGray();
+                bitmap.write(file2);
+            }
+
+            if(args[2].equals("invert")){
+                bitmap.invertColors();
+                bitmap.write(file2);
+
+            }
+
+            if(args[2].equals("rotate")){
+                bitmap.rotate();
+                bitmap.write(file2);
+
+            }
+
+
+        }
 
 
 
